@@ -10,13 +10,6 @@ namespace MarsRoverProblemSolution.Tests
         public virtual IServiceProvider Initialize(Action<IServiceCollection> action = null)
         {
             var services = new ServiceCollection();
-        
-            //var mockDataService = new Mock<DataService.IDataService>();
-
-            //services.AddSingleton(mockDataService.Object);
-
-            //services.AddSingleton<LocationCountryDaoImp>();
-
 
             action?.Invoke(services);
 
