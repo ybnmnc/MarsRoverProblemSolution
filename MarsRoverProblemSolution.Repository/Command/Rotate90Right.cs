@@ -6,7 +6,7 @@ namespace MarsRoverProblemSolution.Repository.Command
     {
         public Position Execute(Position coordinates)
         {
-            var direction = coordinates.Direction.ToString();
+            var direction = coordinates.Direction.Key;
 
             switch (direction)
             {

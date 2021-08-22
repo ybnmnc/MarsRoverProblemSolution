@@ -24,7 +24,7 @@ namespace MarsRoverProblemSolution
 
             var coordinates = _marsRoverProblemSolutionService.MoveRover(maxPoints, currentLocation, movement, _invoker);
             if (coordinates != null)
-                Console.WriteLine(coordinates.X + " " + coordinates.Y + " " + coordinates.Direction);
+                Console.WriteLine(coordinates.X + " " + coordinates.Y + " " + coordinates.Direction.Key);
 
             DisposeServices(_serviceProvider);
         }
