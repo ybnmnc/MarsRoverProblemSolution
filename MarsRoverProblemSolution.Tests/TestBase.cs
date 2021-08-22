@@ -12,15 +12,9 @@ namespace MarsRoverProblemSolution.Tests
             var services = new ServiceCollection();
         
             //var mockDataService = new Mock<DataService.IDataService>();
-            //var mockCustomerService = new Mock<CustomerService.ICustomerService>();
-            //var mockCampaignService = new Mock<CampaignService.ICampaignService>();
 
             //services.AddSingleton(mockDataService.Object);
-            //services.AddSingleton(mockCustomerService.Object);
-            //services.AddSingleton(mockCampaignService.Object);
-            //services.AddSingleton<Pars.Core.Localization.Cache.SimpleCacheHelper>();
-            //services.AddSingleton<ConfigurationParameterDaoImpl>();
-            //services.AddSingleton<Business.Services.LocationService>();
+
             //services.AddSingleton<LocationCountryDaoImp>();
 
 

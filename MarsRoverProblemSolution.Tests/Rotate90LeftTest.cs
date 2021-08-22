@@ -1,4 +1,5 @@
-﻿using MarsRoverProblemSolution.Data;
+﻿using MarsRoverProblemSolution.Business;
+using MarsRoverProblemSolution.Data;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
@@ -20,13 +21,13 @@ namespace MarsRoverProblemSolution.Tests
                 Direction = Directions.N
             };
 
-            //var mockCustomerService = new Mock<MarsRoverService.IMarsRoverService>();
+            //var mockMarsRoverService = new Mock<IMarsRoverService>();
 
 
             var serviceProvider = base.Initialize(services =>
             {
 
-                //services.AddSingleton(new InventoryServiceAdapter(null, null));
+                //services.AddSingleton(mockMarsRoverService);
                 action?.Invoke(services);
 
             });

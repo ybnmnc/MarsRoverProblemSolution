@@ -1,37 +1,39 @@
-﻿namespace MarsRoverProblemSolution.API
+﻿using System.IO;
+
+namespace MarsRoverProblemSolution.API
 {
     public class MarsRoverController
     {
         public static void Start(string fileName)
         {
-            //    using (var streamReader = File.OpenText(fileName))
-            //    {
-            //        var line = streamReader.ReadLine();
+            using (var streamReader = File.OpenText(fileName))
+            {
+                var line = streamReader.ReadLine();
 
-            //        if (line != null)
-            //        {
-            //            //var plateau = CreatePlateau(line);
-            //            var count = 0;
-            //            //Rover rover = null;
+                if (line != null)
+                {
+                    //var plateau = CreatePlateau(line);
+                    var count = 0;
+                    //Rover rover = null;
 
-            //            while ((line = streamReader.ReadLine()) != null)
-            //            {
-            //                if (count % 2 == 0)
-            //                {
-            //                    //rover = CreateRover(line);
-            //                    //rover.SetPlateau(plateau);
-            //                }
-            //                else
-            //                //{
-            //                //    ExecutadCommands(rover, line);
-            //                //    Console.WriteLine(rover.GetPosition());
-            //            }
+                    while ((line = streamReader.ReadLine()) != null)
+                    {
+                        if (count % 2 == 0)
+                        {
+                            //rover = CreateRover(line);
+                            //rover.SetPlateau(plateau);
+                        }
+                        else
+                            //{
+                            //    ExecutadCommands(rover, line);
+                            //    Console.WriteLine(rover.GetPosition());
+                        }
 
-            //            count++;
-            //        }
-            //    }
-            //}
+                    count++;
+                }
+            }
         }
+    }
     }
 
 
