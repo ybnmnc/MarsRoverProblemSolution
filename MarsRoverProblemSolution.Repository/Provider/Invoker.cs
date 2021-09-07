@@ -10,7 +10,7 @@ namespace MarsRoverProblemSolution.Repository.Provider
         /// <param name="command"></param>
         /// <param name="coordinates"></param>
         /// <returns></returns>
-        Position StartMoving(Command command, Position coordinates);
+        Rover StartMoving(Command command, Rover coordinates,Plateau plateau);
     }
 }
 

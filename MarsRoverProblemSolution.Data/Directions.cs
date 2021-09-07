@@ -8,6 +8,8 @@
         public static Directions E { get; }
         public static Directions W { get; }
 
+        public static Directions RIP { get;}
+
 
         static Directions()
         {
@@ -15,6 +17,7 @@
             S = new Directions(nameof(S), 2);
             E = new Directions(nameof(E), 3);
             W = new Directions(nameof(W), 4);
+            RIP = new Directions(nameof(RIP), 5);
 
         }
 
