@@ -9,6 +9,6 @@ namespace MarsRoverProblemSolution.Repository.Provider
         /// </summary>
         /// <param name="coordinates"></param>
         /// <returns></returns>
-        public Position Execute(Position coordinates);
+        public Rover Execute(Rover coordinates,Plateau plateau);
     }
 }

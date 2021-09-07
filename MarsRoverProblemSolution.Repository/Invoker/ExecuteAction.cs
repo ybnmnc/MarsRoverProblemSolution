@@ -9,9 +9,9 @@ namespace MarsRoverProblemSolution.Repository.Invoker
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        public Position StartMoving(Provider.Command command, Position coordinates)
+        public Rover StartMoving(Provider.Command command, Rover coordinates,Plateau plateau)
         {
-            return command.Execute(coordinates);
+            return command.Execute(coordinates,plateau);
         }
     }
 }

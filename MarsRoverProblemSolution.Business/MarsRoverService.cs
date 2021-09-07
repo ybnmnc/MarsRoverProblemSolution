@@ -8,54 +8,55 @@ namespace MarsRoverProblemSolution.Business
 {
     public class MarsRoverService : IMarsRoverService
     {
-        public Position MoveRover(string[] maxPoints, string[] currentLocation, string movement, Invoker invoker)
+        public List<Rover> MoveRover(Plateau plateau, Rover[] rovers, Invoker invoker)
         {
-            var maxList = new List<int>();
-            var positions = new Position();
             Command command;
+            List<Rover> roverResult = new List<Rover>();
 
-            foreach (var item in maxPoints)
+            foreach (var rover in rovers)
             {
-                var point = Convert.ToInt32(item);
-                maxList.Add(point);
-            }
-
-            positions.X = Convert.ToInt32(currentLocation[0]);
-            positions.Y = Convert.ToInt32(currentLocation[1]);
-            positions.Direction = EnumBase.FromKey<Directions>(currentLocation[2]);
-
-
-            foreach (var item in movement)
-            {
-                switch (item)
+                foreach (var item in rover.MovePattern)
                 {
-                    case 'L':
-                        command = new Rotate90Left();
-                        break;
-                    case 'R':
-                        command = new Rotate90Right();
-                        break;
-                    case 'M':
-                        command = new RotateSameDirection(maxList);
-                        break;
-                    default:
-                        return null;
+                    switch (item)
+                    {
+                        case 'L':
+                            command = new Rotate90Left();
+                            break;
+                        case 'R':
+                            command = new Rotate90Right();
+                            break;
+                        case 'M':
+                            command = new RotateSameDirection();
+                            break;
+                        default:
+                            return null;
+                    }
+
+                    var response = invoker.StartMoving(command, rover, plateau);
+
+                    if (response.Rover_X < plateau.X && response.Rover_Y < plateau.Y)
+                    {
+
+                        rover.Direction = response.Direction;
+                        rover.Rover_X = response.Rover_X;
+                        rover.Rover_Y = response.Rover_Y;
+                    }
+                    else if (response.Flag == false)
+                    {
+                        //Console.WriteLine("Rıp KOORDINATI...");
+                        response.Direction = Directions.RIP;
+
+                    }
+                    else
+                    {
+                        rover.Direction = response.Direction;
+                        Console.WriteLine("plato kordınatları asıldı..");
+                    }
                 }
 
-                var response = invoker.StartMoving(command, positions);
-
-                if (response == null)
-                {
-                    return null;
-                }
-
-                positions.Direction = response.Direction;
-                positions.X = response.X;
-                positions.Y = response.Y;
-
+                roverResult.Add(rover);
             }
-
-            return positions;
+            return roverResult;
         }
     }
 }
